@@ -3,7 +3,9 @@ const petsRoutes = express.Router();
 const fs = require('fs');
 var cors = require('cors')
 const dataPath = './Init/allPets.json'
+petsRoutes.options('*', cors())
 petsRoutes.use(cors())
+
 
 petsRoutes.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
