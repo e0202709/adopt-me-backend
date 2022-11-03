@@ -43,7 +43,9 @@ petsRoutes.post('/pets/addpet', (req, res) => {
   }
   currentPets[petId] = req.body
   savePetsData(currentPets);
-  res.send({ success: true, msg: 'new pet added successfully for adoption' })
+  res.send(getPetsData())
+
+  // res.send({ success: true, msg: 'new pet added successfully for adoption' })
 })
 
 // Get All Pets from json file
@@ -60,7 +62,8 @@ petsRoutes.put('/pets/:id', (req, res) => {
     allPets[petId] = req.body;
 
     savePetsData(allPets);
-    res.send(`Pet Id: ${petId} updated successfully for adoption`)
+    res.send(getPetsData())
+    // res.send(`Pet Id: ${petId} updated successfully for adoption`)
   }, true);
 });
 
@@ -73,7 +76,8 @@ petsRoutes.delete('/pets/delete/:id', (req, res) => {
 
     delete allPets[petId];
     savePetsData(allPets);
-    res.send(`Pet Id: ${petId} deleted successfully`)
+    res.send(getPetsData())
+    // res.send(`Pet Id: ${petId} deleted successfully`)
   }, true);
 })
 
