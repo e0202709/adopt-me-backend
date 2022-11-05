@@ -10,29 +10,6 @@
 ## Setup
 Connect to the EC2 instance (it should look like ubuntu22-sutd-student-6) either via SSH or using the AWS console directly
 
-Change directory into your nginx file, it is either located in paths: /usr/local/nginx/conf , /etc/nginx , or /usr/local/etc/nginx .
-
-run 
-```
-/etc/nginx
-```
-run 
-```
-sudo nano default
-```
-add these lines into the nginx config file
-```
-   location /3001 {
-                proxy_pass http://localhost:3001;
-                proxy_set_header X-Real-IP $remote_addr;
-                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-                proxy_set_header Host $host;
-                proxy_redirect off;
-        }
-
-```
-Save and exit by `Ctrl-O` and `Ctrl-X`
-
 Clone this repo into a fresh Ubuntu 22.04 EC2 instance
 
 run 
